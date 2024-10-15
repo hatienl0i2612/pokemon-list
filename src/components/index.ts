@@ -1,4 +1,2 @@
-export * from './Header'
-export * from './InfoBox'
-export * from './Layout'
-export * from './PostList'
+export * from './Pokemon';
+export * from './Spinner';
