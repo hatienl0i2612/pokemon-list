@@ -5,6 +5,7 @@ import { usePokemons } from '../hooks/usePokemons';
 import Spinner from '../components/Spinner';
 import { Pokemon, PokemonType } from '../interfaces';
 import { DEFAULT_PAGINATION } from '../constants';
+import { useRouter } from 'next/navigation';
 
 const Home = () => {
     const [selectedTypes, setSelectedTypes] = useState<PokemonType[]>([]);
@@ -17,6 +18,8 @@ const Home = () => {
     const { data: dataPokemonTypes, isFetching: isFetchingTypes } = usePokemonTypes();
 
     const { data: pokemons, isFetching: isFetchingPokemons } = usePokemons();
+
+    const router = useRouter();
 
     const [data, setData] = useState<Pokemon[]>([]);
 
@@ -105,6 +108,14 @@ const Home = () => {
                     }}
                 >
                     Next
+                </button>
+                <button
+                    className='p-2 bg-red-900 rounded-md text-white mr-4 disabled:opacity-40 disabled:cursor-not-allowed select-none'
+                    onClick={() => {
+                        router.push('/stories');
+                    }}
+                >
+                    Redirect to stories
                 </button>
             </div>
         </div>

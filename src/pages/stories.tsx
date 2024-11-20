@@ -3,8 +3,8 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 const Home = ({ stories }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return (
         <>
-            {stories.map((story) => (
-                <div className='p-3'>
+            {stories.map((story, idx) => (
+                <div className='p-3' key={idx}>
                     <div>Title: {story.title}</div>
                     <div>Description: {story.description}</div>
                 </div>
